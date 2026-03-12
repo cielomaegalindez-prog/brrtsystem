@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Barangay Requirement Request and Tracking System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="container">
+
+<div class="card" id="app">
+
+<div class="topbar">
+<div><strong>Barangay Requirement Request System</strong></div>
+
+<div class="links" id="top-links">
+<button class="btn-ghost" onclick="showPage('front')">Home</button>
+<button class="btn" onclick="showPage('login')">Login</button>
+</div>
+
+</div>
+
+
+<!-- FRONT PAGE -->
+
+<section id="front" class="page">
+
+<div class="hero">
+
+<div class="hero-left">
+
+<h1>Welcome to the Barangay Requirement Request and Tracking System</h1>
+
+<p class="lead">
+Request barangay documents quickly. Capture or upload your ID, fill out the form,
+track progress live, and print after approval.
+</p>
+
+<div style="margin-top:16px;display:flex;gap:12px">
+
+<button class="btn" onclick="showPage('register')">Create Account</button>
+<button class="btn-ghost" onclick="showPage('login')">Sign In</button>
+
+</div>
+
+</div>
+
+
+<div class="hero-right">
+
+<div class="quick">
+
+<h3>Quick Steps</h3>
+
+<ol>
+<li>Create account or login</li>
+<li>Fill request form & upload/capture image</li>
+<li>Track status live</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login" class="page" style="display:none">
+
+<h2>Sign in</h2>
+
+<label>Email</label>
+<input id="login-email">
+
+<label>Password</label>
+
+<div class="pw-toggle">
+<input id="login-pass" type="password">
+<button onclick="togglePassword('login-pass')">Show</button>
+</div>
+
+<div style="margin-top:12px">
+
+<button class="btn" onclick="handleLogin()">Sign in</button>
+<button class="btn-ghost" onclick="showPage('front')">Back</button>
+
+</div>
+
+</section>
+
+
+<!-- REGISTER -->
+
+<section id="register" class="page" style="display:none">
+
+<h2>Create account</h2>
+
+<label>Full Name</label>
+<input id="reg-name">
+
+<label>Email</label>
+<input id="reg-email">
+
+<label>Password</label>
+
+<div class="pw-toggle">
+<input id="reg-pass" type="password">
+<button onclick="togglePassword('reg-pass')">Show</button>
+</div>
+
+<label>Confirm Password</label>
+
+<div class="pw-toggle">
+<input id="reg-pass2" type="password">
+<button onclick="togglePassword('reg-pass2')">Show</button>
+</div>
+
+<div style="margin-top:12px">
+
+<button class="btn" onclick="handleRegister()">Create Account</button>
+<button class="btn-ghost" onclick="showPage('front')">Cancel</button>
+
+</div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page" style="display:none">
+
+<div class="topbar">
+
+<div>
+<strong id="welcome-name"></strong>
+<div class="small">Logged in as <span id="welcome-email"></span></div>
+</div>
+
+<div>
+<button class="btn-ghost" onclick="showPage('account')">Account</button>
+<button class="btn-ghost" onclick="handleLogout()">Logout</button>
+</div>
+
+</div>
+
+<h3>Fill up & Request a Document</h3>
+
+<label>Full Name</label>
+<input id="fullName">
+
+<label>Birthday</label>
+<input id="birthday" type="date">
+
+<label>Contact Number</label>
+<input id="contact">
+
+<label>Address</label>
+<input id="address">
+
+<label>Purpose</label>
+<input id="purpose">
+
+<label>Requirement Type</label>
+
+<select id="reqType">
+<option>Barangay Clearance</option>
+<option>Business Permit</option>
+<option>Certificate of Indigency</option>
+<option>Family Profile</option>
+<option>Medical Endorsement</option>
+</select>
+
+<div style="margin-top:10px">
+
+<button class="btn" onclick="submitRequest()">Submit Request</button>
+<button class="btn-ghost" onclick="resetForm()">Reset</button>
+
+</div>
+
+</section>
+
+
+<!-- ACCOUNT SETTINGS -->
+
+<section id="account" class="page" style="display:none">
+
+<h3>Account Settings</h3>
+
+<label>Display Name</label>
+<input id="acct-name">
+
+<label>Email</label>
+<input id="acct-email" disabled>
+
+<label>Change Password</label>
+
+<div class="pw-toggle">
+<input id="acct-pass" type="password">
+<button onclick="togglePassword('acct-pass')">Show</button>
+</div>
+
+<label>Confirm Password</label>
+
+<div class="pw-toggle">
+<input id="acct-pass2" type="password">
+<button onclick="togglePassword('acct-pass2')">Show</button>
+</div>
+
+<div style="margin-top:12px">
+
+<button class="btn" onclick="saveAccount()">Save</button>
+<button class="btn-ghost" onclick="showPage('dashboard')">Close</button>
+
+</div>
+
+</section>
+
+<footer>Barangay Requirement Request & Tracking System</footer>
+
+</div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
